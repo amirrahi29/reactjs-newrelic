@@ -1,0 +1,163 @@
+﻿IHS Architecture & Design - Tech Stack Upgrade 2025
+Healthcare Finance Platform Modernization & AI Roadmap
+────────────────────────────────────────
+Prepared by: Architecture Team | Date: September 2025
+
+
+Executive Summary
+The IHS platform enables healthcare providers to extend credit financing to patients. In 2024, the baseline tech stack was defined. The 2025 revamp upgrades key components to ensure scalability, performance, compliance, observability, and AI readiness.
+
+Each section of this document details:
+• 2024 Baseline
+• 2025 Upgrade
+• Why this upgrade is important in 2025
+• Impact
+• IHS Benefit
+
+Additionally, an AI Roadmap 2026+ outlines advanced future opportunities (LangChain, Vector DBs, XAI, AIOps).
+User Interface (UI)
+2024: Angular, ReactJS, NextJS 13, VueJS, RemixJS.
+2025: NextJS 14 + React 18.3.
+Why this upgrade is important in 2025: NextJS 14 introduces App Router, server components, and better SSR. React 18.3 brings concurrent rendering.
+Impact:
+* • Improved page rendering performance and SEO.
+* • Better modularization with micro-frontends.
+IHS Benefit:
+* • Faster and smoother patient loan application experience.
+* • Consistent UI across hospitals.
+UI Testing & Automation
+2024: Jest, React Testing Library, Enzyme, Cypress, Playwright, Selenium.
+2025: Jest + React Testing Library for unit tests, Playwright for E2E.
+Why this upgrade is important in 2025: Enzyme and Selenium are deprecated. Playwright ensures stable cross-browser automation.
+Impact:
+* • Reduced flakiness in CI/CD pipelines.
+* • Reliable test coverage for critical workflows.
+IHS Benefit:
+* • Prevents errors in patient financing workflows.
+* • Faster, safer deployments.
+Backend Frameworks
+2024: Spring Boot, Quarkus, NodeJS, Python, Kotlin.
+2025: Spring Boot 3.3 LTS (with GraalVM), Quarkus 3.x, NodeJS 20, Java 21 (Virtual Threads).
+Why this upgrade is important in 2025: Spring Boot 3.3 provides LTS, GraalVM enables native images, and Java 21 supports virtual threads.
+Impact:
+* • 30-40% faster startup time.
+* • Lower infra cost with reduced memory usage.
+* • Improved concurrency with virtual threads.
+IHS Benefit:
+* • Handles heavy computation for credit scoring and batch processing efficiently.
+* • Faster response times for loan applications.
+Batch Processing
+2024: Spring Batch 4.x with basic multithreading and async jobs.
+2025: Spring Batch 5.x with chunking, partitioning, async executors, and Java 21 virtual threads.
+Why this upgrade is important in 2025: Improves scalability for bulk file ingestion and batch loan processing.
+Impact:
+* • Faster ingestion of large files.
+* • Better parallelism with lower resource consumption.
+IHS Benefit:
+* • Reduced turnaround for loan approvals.
+* • Scalable processing during high load.
+Messaging & Event Streaming
+2024: Kafka, RabbitMQ.
+2025: Kafka 3.x; Pulsar and Redpanda under POC.
+Why this upgrade is important in 2025: Kafka 3.x introduces tiered storage, KRaft mode, and improved resilience. Pulsar/Redpanda provide cloud-native alternatives.
+Impact:
+* • Highly reliable streaming of loan-related events.
+* • Better resilience during peak loads.
+IHS Benefit:
+* • No message loss in loan applications.
+* • Smooth event processing during high demand.
+Caching & In-Memory Data
+2024: Redis, Memcached, Hazelcast, Infinispan, Geode, Guava.
+2025: Redis Stack 7.x with JSON, Search, and Vector DB.
+Why this upgrade is important in 2025: Provides advanced querying, semantic search, and vector storage for AI workloads.
+Impact:
+* • Millisecond response time.
+* • Enables AI-driven fraud detection.
+IHS Benefit:
+* • Faster patient eligibility checks.
+* • Supports AI for repayment risk analysis.
+Database
+2024: MySQL, Cassandra.
+2025: PostgreSQL 16 replaces MySQL; Cassandra/ScyllaDB retained.
+Why this upgrade is important in 2025: PostgreSQL provides advanced SQL features, JSONB support, and analytics capabilities.
+Impact:
+* • Hybrid SQL + NoSQL data handling.
+* • Faster transactional and analytical queries.
+IHS Benefit:
+* • Reliable loan transaction storage.
+* • Better reporting and insights.
+Micro-Frontends
+2024: React, NextJS, RemixJS, FrintJS, PuzzleJS.
+2025: NextJS 14 with Module Federation.
+Why this upgrade is important in 2025: Allows independent deployments of different frontend modules.
+Impact:
+* • Faster modular UI releases.
+* • Reduced inter-team dependencies.
+IHS Benefit:
+* • Teams can independently manage eligibility, loan, and repayment UIs.
+* • Speeds up innovation.
+DevOps & Infrastructure
+2024: Docker, Kubernetes, Maven, Gradle.
+2025: Kubernetes 1.30+, Helm, ArgoCD, GitHub Actions, Terraform.
+Why this upgrade is important in 2025: Adoption of GitOps and Infrastructure-as-Code practices.
+Impact:
+* • More reproducible environments.
+* • Reduced risk of release failures.
+IHS Benefit:
+* • Reliable deployments of patient finance services.
+* • Improved developer productivity.
+Observability
+2024: ELK stack.
+2025: Prometheus + Grafana, OpenTelemetry, OpenSearch, New Relic (APM, RUM, Session Replay, Alerts).
+Why this upgrade is important in 2025: New Relic provides full-stack SaaS observability with APM, RUM, and AI anomaly detection.
+Impact:
+* • Full visibility across UI, APIs, DB, and infra.
+* • Faster MTTR with proactive alerts.
+IHS Benefit:
+* • Traceability across patient loan workflows.
+* • Improved UX debugging with Session Replay.
+Security
+2024: Generic principles.
+2025: Zero-Trust, OIDC, Vault, mTLS, encryption.
+Why this upgrade is important in 2025: Stronger compliance with HIPAA/GDPR regulations.
+Impact:
+* • Secures sensitive data at rest and in transit.
+* • Better secrets and credential management.
+IHS Benefit:
+* • Protects patient financial and healthcare data.
+* • Ensures regulatory compliance.
+AI (New in 2025)
+2024: No AI components.
+2025: Spring AI 1.0 + Redis Vector DB.
+Why this upgrade is important in 2025: Enables AI-driven analytics and predictive modeling.
+Impact:
+* • Automated credit scoring and eligibility prediction.
+* • Supports fraud detection and risk forecasting.
+IHS Benefit:
+* • Faster, smarter credit approvals.
+* • Reduced financial risk for providers.
+AI Roadmap 2026+ (Future Considerations)
+Future AI-driven enhancements for IHS:
+
+1. Spring AI + LangChain → Hybrid rule + AI workflows.
+2. Advanced Vector DBs (Pinecone, Weaviate, Milvus).
+3. Model Serving (KServe/Seldon on Kubernetes).
+4. Real-Time AI inference in Kafka Streams.
+5. Explainable AI (XAI) for regulatory transparency.
+6. AI-powered Observability (AIOps).
+
+Benefit: These upgrades will make IHS smarter, more transparent, and predictive in patient credit finance.
+Conclusion & Recommendations
+The 2025 revamp modernizes IHS with scalable, secure, and AI-ready technologies. Core upgrades (NextJS 14, Spring Boot 3.3, Redis Stack, PostgreSQL 16, Playwright, New Relic) should be adopted immediately. POCs should validate Pulsar, Redpanda, and advanced AI extensions.
+
+Action Items:
+• Adopt core 2025 stack upgrades.
+• Run POCs for emerging technologies.
+• Train teams on DevOps, Observability, AI.
+• Ensure HIPAA/GDPR compliance.
+
+With these, IHS will remain robust, compliant, and future-ready.
+
+
+2024 vs 2025 Tech Stack Comparison
+Category2024 Baseline2025 UpgradeUser Interface (UI)Angular, ReactJS, NextJS 13, VueJS, RemixJSNextJS 14 + React 18.3UI TestingJest, RTL, Enzyme, Cypress, Playwright, SeleniumJest + RTL (unit), Playwright (E2E)Backend FrameworksSpring Boot, Quarkus, NodeJS, Python, KotlinSpring Boot 3.3 LTS + GraalVM, Quarkus 3.x, NodeJS 20, Java 21 (Virtual Threads)Batch ProcessingSpring Batch 4.x, basic multithreadingSpring Batch 5.x, chunking, async, Virtual ThreadsMessagingKafka, RabbitMQKafka 3.x, Pulsar/Redpanda (POC)CachingRedis, Memcached, Hazelcast, Infinispan, Geode, GuavaRedis Stack 7.x (JSON, Search, Vector DB)DatabaseMySQL, CassandraPostgreSQL 16, Cassandra/ScyllaDBMicro-FrontendsReact, NextJS, RemixJS, FrintJS, PuzzleJSNextJS 14 with Module FederationDevOps & InfraDocker, Kubernetes, Maven, GradleKubernetes 1.30+, Helm, ArgoCD, GitHub Actions, TerraformObservabilityELKPrometheus + Grafana, OpenTelemetry, OpenSearch, New Relic (APM, RUM, Replay, Alerts)SecurityGeneric principlesZero-Trust, OIDC, Vault, mTLS, EncryptionAINoneSpring AI 1.0 + Redis Vector DB
